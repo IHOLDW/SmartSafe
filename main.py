@@ -273,10 +273,10 @@ def generate_action_feed(recipient_email, username):
             landmarks = res.pose_landmarks.landmark
             pose = np.array([[lm.x, lm.y, lm.z, lm.visibility] for lm in landmarks]).flatten()
             frame_seq.append(pose)
-            mp_drawing.draw_landmarks(
-            frame,
-            res.pose_landmarks,
-            mp_pose.POSE_CONNECTIONS)
+            # mp_drawing.draw_landmarks(
+            # frame,
+            # res.pose_landmarks,
+            # mp_pose.POSE_CONNECTIONS)
             frame_num += 1
         if frame_num == 30:
             frame_seq_np = np.expand_dims(frame_seq, axis=0).astype(np.float32)
