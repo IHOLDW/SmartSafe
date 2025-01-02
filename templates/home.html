@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Safe - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #004aad;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            width: 60px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            display: inline;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #004aad;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #003a80;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="templates\smart_safr_logo.jpg" alt="Smart Safe Logo">
+        <h1>Smart Safe</h1>
+    </header>
+
+    <div class="container">
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+              {% for category, message in messages %}
+                <li style="color: {% if category == 'success' %}green{% else %}red{% endif %};">
+                  {{ message }}
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <h1>Welcome to the Smart Safe App</h1>
+        <p>Securely register and log in with facial recognition technology.</p>
+        <a href="{{ url_for('register') }}">Register with Face</a>
+        <a href="{{ url_for('login') }}">Login with Face</a>
+    </div>
+
+    <footer>
+        &copy; 2024 Smart Safe. All Rights Reserved.
+    </footer>
+</body>
+</html>

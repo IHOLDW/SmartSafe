@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Safe - Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #004aad;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            width: 60px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            display: inline;
+            font-size: 24px;
+        }
+
+        .logout {
+            position: absolute;
+            right: 20px;
+            top: 15px;
+        }
+
+        .logout a {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .logout a:hover {
+            background-color: #c0392b;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin: 20px 0 10px;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="templates\smart_safr_logo.jpg" alt="Smart Safe Logo">
+        <h1>Smart Safe</h1>
+        <div class="logout">
+            <a href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Welcome, {{ username }}!</h1>
+        <h2>Live Action Detection Feed</h2>
+        <img src="{{ url_for('dashboard_feed') }}" alt="Dashboard Live Feed">
+    </div>
+
+    <footer>
+        &copy; 2024 Smart Safe. All Rights Reserved.
+    </footer>
+</body>
+</html>

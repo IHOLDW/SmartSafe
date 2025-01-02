@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Safe - Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #004aad;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            width: 60px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        header h1 {
+            display: inline;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        img {
+            max-width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        footer {
+            margin-top: 30px;
+            text-align: center;
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+    <script>
+        // Poll the server to check if a match has been found
+        function checkMatch() {
+            fetch("/check_match")
+                .then(response => response.json())
+                .then(data => {
+                    if (data.match_found) {
+                        // Redirect to the after_match route
+                        window.location.href = "/after_match";
+                    }
+                });
+        }
+
+        // Check match status every second
+        setInterval(checkMatch, 1000);
+    </script>
+</head>
+<body>
+    <header>
+        <img src="templates\smart_safr_logo.jpg" alt="Smart Safe Logo">
+        <h1>Smart Safe</h1>
+    </header>
+
+    <div class="container">
+        <h1>Login with Face</h1>
+        <p>Scan your face using the live feed below to log in securely.</p>
+        <img src="/login_feed" alt="Video Feed">
+    </div>
+
+    <footer>
+        &copy; 2024 Smart Safe. All Rights Reserved.
+    </footer>
+</body>
+</html>

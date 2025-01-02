@@ -1,0 +1,6 @@
+tensorflow=2.18.0
+falsk
+numpy=1.26.4
+mediapipe=0.10.18
+smtp
+opencv-python=4.10.0
